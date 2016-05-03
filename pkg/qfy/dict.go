@@ -1,4 +1,4 @@
-package phony
+package qfy
 
 // Default dict.
 var dict = map[string][]string{
