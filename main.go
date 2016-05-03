@@ -120,6 +120,7 @@ func compile(tmpl string, g *qfy.Generator) func() string {
 
 	return func() string {
 		var dataCache []string
+		var r *rand.Rand = qfy.CreateRand()
 
 		return expr.ReplaceAllStringFunc(tmpl, func(s string) string {
 			var data string
@@ -135,7 +136,7 @@ func compile(tmpl string, g *qfy.Generator) func() string {
 			i64, err := strconv.ParseInt(parts[0], 10, 64)
 
 			if err != nil {
-				data, err = g.GetWithArgs(parts[0], arguments)
+				data, err = g.GetWithArgs(parts[0], arguments, r)
 				check(err)
 
 				dataCache = append(dataCache, data)
