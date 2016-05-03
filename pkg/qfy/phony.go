@@ -1,4 +1,4 @@
-package phony
+package qfy
 
 import "math/rand"
 

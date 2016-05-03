@@ -1,4 +1,4 @@
-# phony
+# qfy
 
   Tiny command line program that accepts a template and outputs fake data.
 
@@ -9,49 +9,49 @@
 ```bash
 # publish email to nsq every 1ms.
 echo '{"email":"{{email}}", "subject": "welcome!"}' \
-  | phony --tick 1ms \
+  | qfy --tick 1ms \
   | json-to-nsq --topic users
 
 # add users to FoundationDB.
 echo "'set {{username}} {{avatar}}'" \
-  | phony \
+  | qfy \
   | xargs -L1 -n3 fdbcli --exec
 
 # add users to MongoDB.
 echo "'db.users.insert({ name: \"{{name}}\" })'" \
-  | phony \
+  | qfy \
   | xargs -L1 -n1 mongo --eval
 
 # add users to Redis.
 echo "set {{username}} {{avatar}}" \
-  | phony \
+  | qfy \
   | xargs -L1 -n3 redis-cli
 
 # send a single request using curl.
 echo 'country={{country}}' \
-  | phony --max 1 \
+  | qfy --max 1 \
   | curl -d @- httpbin.org/post
 ```
 
 ## Installation
 
 ```bash
-$ go get github.com/yields/phony
+$ go get github.com/peteraba/qfy
 ```
 
 ## Usage
 
 ```text
 
-Usage: phony
+Usage: qfy
   [--tick d]
   [--max n]
   [--batch n]
   [--list]
   [--concurrent]
 
-  phony -h | --help
-  phony -v | --version
+  qfy -h | --help
+  qfy -v | --version
 
 Options:
   --tick d        generate data every d [default: 10ms]
@@ -147,7 +147,7 @@ You can define numbers in your template to reference previously defined template
 
 ```
 echo '{"email":"{{email}}", "email_repeated": "{{0}}"}' \
-  | phony --max 1
+  | qfy --max 1
 ```
 
 This will output something similar to the following:

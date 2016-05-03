@@ -13,20 +13,20 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/peteraba/qfy/pkg/qfy"
 	"github.com/tj/docopt"
-	"github.com/yields/phony/pkg/phony"
 )
 
 var usage = `
-  Usage: phony
+  Usage: qfy
     [--tick d]
     [--max n]
     [--batch n]
     [--list]
     [--concurrent]
 
-    phony -h | --help
-    phony -v | --version
+    qfy -h | --help
+    qfy -v | --version
 
   Options:
     --tick d        generate data every d [default: 10ms]
@@ -43,7 +43,7 @@ func main() {
 	args, err := docopt.Parse(usage, nil, true, "0.0.2", false)
 	check(err)
 
-	g := phony.NewGenerator()
+	g := qfy.NewGenerator()
 
 	if args["--list"].(bool) {
 		all := g.List()
@@ -114,7 +114,7 @@ func tickMain(max int, tmpl string, f func() string, tick <-chan time.Time) {
 	}
 }
 
-func compile(tmpl string, g *phony.Generator) func() string {
+func compile(tmpl string, g *qfy.Generator) func() string {
 	expr, err := regexp.Compile(`({{ *(([a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?)+(\:([a-zA-Z0-9\.,-]+))?) *}})`)
 	check(err)
 
@@ -153,7 +153,7 @@ func compile(tmpl string, g *phony.Generator) func() string {
 
 func check(err error) {
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "phony: %s\n", err.Error())
+		fmt.Fprintf(os.Stderr, "qfy: %s\n", err.Error())
 		os.Exit(1)
 	}
 }
