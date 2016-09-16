@@ -1,4 +1,4 @@
-package qfy
+package fakie
 
 import (
 	"errors"

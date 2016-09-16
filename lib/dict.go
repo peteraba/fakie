@@ -1,4 +1,4 @@
-package qfy
+package fakie
 
 // Default dict.
 var dict = map[string][]string{

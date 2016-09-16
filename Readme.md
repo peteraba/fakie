@@ -1,57 +1,55 @@
-# qfy
+# fakie
 
-  Tiny command line program that accepts a template and outputs fake data.
-
-  ![](https://cldup.com/RZoAhReDqN.gif)
+Tiny command line program that accepts a template and outputs fake data, based on [phony](https://github.com/yields/phony)
 
 ## Examples
 
 ```bash
 # publish email to nsq every 1ms.
 echo '{"email":"{{email}}", "subject": "welcome!"}' \
-  | qfy --tick 1ms \
+  | fakie --tick 1ms \
   | json-to-nsq --topic users
 
 # add users to FoundationDB.
 echo "'set {{username}} {{avatar}}'" \
-  | qfy \
+  | fakie \
   | xargs -L1 -n3 fdbcli --exec
 
 # add users to MongoDB.
 echo "'db.users.insert({ name: \"{{name}}\" })'" \
-  | qfy \
+  | fakie \
   | xargs -L1 -n1 mongo --eval
 
 # add users to Redis.
 echo "set {{username}} {{avatar}}" \
-  | qfy \
+  | fakie \
   | xargs -L1 -n3 redis-cli
 
 # send a single request using curl.
 echo 'country={{country}}' \
-  | qfy --max 1 \
+  | fakie --max 1 \
   | curl -d @- httpbin.org/post
 ```
 
 ## Installation
 
 ```bash
-$ go get github.com/peteraba/qfy
+$ go get github.com/peteraba/fakie
 ```
 
 ## Usage
 
 ```text
 
-Usage: qfy
+Usage: fakie
   [--tick d]
   [--max n]
   [--batch n]
   [--list]
   [--concurrent]
 
-  qfy -h | --help
-  qfy -v | --version
+  fakie -h | --help
+  fakie -v | --version
 
 Options:
   --tick d        generate data every d [default: 10ms]
@@ -147,7 +145,7 @@ You can define numbers in your template to reference previously defined template
 
 ```
 echo '{"email":"{{email}}", "email_repeated": "{{0}}"}' \
-  | qfy --max 1
+  | fakie --max 1
 ```
 
 This will output something similar to the following:
@@ -155,6 +153,3 @@ This will output something similar to the following:
 {"email":"tomaslau16@example.us","email_repeated":"tomaslau16@example.us"}
 ```
 
-## License
-
-  (MIT), 2014 Amir Abu Shareb.
