@@ -1,6 +1,6 @@
 # fakie
 
-Tiny command line program that accepts a template and outputs fake data, based on [phony](https://github.com/yields/phony)
+Tiny command line program that accepts a template and outputs fake data based on [phony](https://github.com/yields/phony).
 
 ## Examples
 
