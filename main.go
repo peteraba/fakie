@@ -106,7 +106,7 @@ func concurrentMain(max int, tmpl string, f func() string, batchSize int) {
 func tickMain(max int, tmpl string, f func() string, tick <-chan time.Time) {
 	it := 0
 
-	for _ = range tick {
+	for range tick {
 		fmt.Fprintf(os.Stdout, "%s", f())
 		if it++; -1 != max && it == max {
 			return

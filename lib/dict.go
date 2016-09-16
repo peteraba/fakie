@@ -2,7 +2,7 @@ package fakie
 
 // Default dict.
 var dict = map[string][]string{
-	"domain.tld": []string{
+	"domain.tld": {
 		"name",
 		"info",
 		"com",
@@ -10,11 +10,11 @@ var dict = map[string][]string{
 		"me",
 		"us",
 	},
-	"domain.name": []string{
+	"domain.name": {
 		"example",
 		"test",
 	},
-	"country": []string{
+	"country": {
 		"Afghanistan",
 		"Albania",
 		"Algeria",
@@ -261,7 +261,7 @@ var dict = map[string][]string{
 		"Zambia",
 		"Zimbabwe",
 	},
-	"country.code": []string{
+	"country.code": {
 		"AD",
 		"AE",
 		"AF",
@@ -513,7 +513,7 @@ var dict = map[string][]string{
 		"ZM",
 		"ZW",
 	},
-	"state": []string{
+	"state": {
 		"Alabama",
 		"Alaska",
 		"Arizona",
@@ -565,7 +565,7 @@ var dict = map[string][]string{
 		"Wisconsin",
 		"Wyoming",
 	},
-	"state.code": []string{
+	"state.code": {
 		"AL",
 		"AK",
 		"AZ",
@@ -617,7 +617,7 @@ var dict = map[string][]string{
 		"WI",
 		"WY",
 	},
-	"timezone": []string{
+	"timezone": {
 		"Pacific/Midway",
 		"Pacific/Pago_Pago",
 		"Pacific/Honolulu",
@@ -762,7 +762,7 @@ var dict = map[string][]string{
 		"Pacific/Fakaofo",
 		"Pacific/Apia",
 	},
-	"username": []string{
+	"username": {
 		"jarjan",
 		"mahdif",
 		"sprayaga",
@@ -1117,7 +1117,7 @@ var dict = map[string][]string{
 		"urrutimeoli",
 		"areandacom",
 	},
-	"name.first": []string{
+	"name.first": {
 		"Lavera",
 		"Kristel",
 		"Kathey",
@@ -1827,7 +1827,7 @@ var dict = map[string][]string{
 		"Broderick",
 		"Alonso",
 	},
-	"name.last": []string{
+	"name.last": {
 		"Johnson",
 		"Williams",
 		"Jones",
@@ -2283,7 +2283,7 @@ var dict = map[string][]string{
 		"Logan",
 		"Owen",
 	},
-	"color": []string{
+	"color": {
 		"red",
 		"green",
 		"blue",
@@ -2316,7 +2316,7 @@ var dict = map[string][]string{
 		"lavender",
 		"silver",
 	},
-	"product.category": []string{
+	"product.category": {
 		"Books",
 		"Movies",
 		"Music",
@@ -2340,7 +2340,7 @@ var dict = map[string][]string{
 		"Automotive",
 		"Industrial",
 	},
-	"product.name": []string{
+	"product.name": {
 		"Key Lamsoft",
 		"Stat Ing",
 		"Ozer Fresh",
@@ -2414,13 +2414,13 @@ var dict = map[string][]string{
 		"Ap Lottip",
 		"Tresstrong",
 	},
-	"event.action": []string{
+	"event.action": {
 		"Viewed",
 		"Purchased",
 		"Watched",
 		"Clicked",
 	},
-	"http.method": []string{
+	"http.method": {
 		"GET",
 		"POST",
 		"PUT",

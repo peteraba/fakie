@@ -108,8 +108,8 @@ func NewGenerator() *Generator {
 	}
 
 	generator.cachedArguments = map[string]map[string]interface{}{
-		smartdouble:   map[string]interface{}{},
-		smartunixtime: map[string]interface{}{},
+		smartdouble:   {},
+		smartunixtime: {},
 	}
 
 	// Default gens.
