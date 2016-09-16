@@ -128,7 +128,7 @@ func compile(tmpl string, g *fakie.Generator) func() string {
 			call := strings.Trim(s[2:len(s)-2], " ")
 
 			parts := strings.Split(call, ":")
-			var arguments []string = nil
+			var arguments []string
 			if len(parts) == 2 {
 				arguments = strings.Split(parts[1], ",")
 			}
@@ -142,7 +142,7 @@ func compile(tmpl string, g *fakie.Generator) func() string {
 				dataCache = append(dataCache, data)
 			} else {
 				if len(dataCache) <= int(i64) {
-					check(errors.New("Given template references a non-existant value"))
+					check(errors.New("Given template references a non-existent value"))
 				}
 				return dataCache[i64]
 			}

@@ -71,6 +71,7 @@ func (g *Generator) getSmartDate(args []string, r *rand.Rand) time.Time {
 
 var gen *Generator
 
+// NewGenerator is a factory method for Generator
 func NewGenerator() *Generator {
 	if gen != nil {
 		return gen
@@ -157,8 +158,8 @@ func NewGenerator() *Generator {
 			return fmt.Sprintf("%x:%x:%x:%x:%x:%x", r.Intn(255), r.Intn(255), r.Intn(255), r.Intn(255), r.Intn(255), r.Intn(255)), nil
 		},
 		"latitude": func(g *Generator, args []string, r *rand.Rand) (string, error) {
-			lattitude := (r.Float64() * 180) - 90
-			return strconv.FormatFloat(lattitude, 'f', 6, 64), nil
+			latitude := (r.Float64() * 180) - 90
+			return strconv.FormatFloat(latitude, 'f', 6, 64), nil
 		},
 		"longitude": func(g *Generator, args []string, r *rand.Rand) (string, error) {
 			longitude := (r.Float64() * 360) - 180

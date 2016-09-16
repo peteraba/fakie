@@ -1765,7 +1765,7 @@ var dict = map[string][]string{
 		"Malcom",
 		"Long",
 		"Korey",
-		"Jospeh",
+		"Joseph",
 		"Colton",
 		"Waylon",
 		"Von",
