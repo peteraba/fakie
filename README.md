@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/peteraba/fakie/badge.svg?branch=develop)](https://coveralls.io/github/peteraba/fakie?branch=develop)
 [![Go Report Card](https://goreportcard.com/badge/github.com/peteraba/fakie)](https://goreportcard.com/report/github.com/peteraba/fakie)
 [![GoDoc](https://godoc.org/github.com/peteraba/fakie?status.svg)](https://godoc.org/github.com/peteraba/fakie)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/peteraba/fakie/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/peteraba/fakie/master/LICENSE.md)
 
 # fakie
 
