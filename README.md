@@ -54,6 +54,8 @@ Usage: fakie
   [--batch n]
   [--list]
   [--concurrent]
+  [--prefix s]
+  [--postfix s]
 
   fakie -h | --help
   fakie -v | --version
@@ -64,6 +66,8 @@ Options:
   --batch n       batch size for concurrent runs [default: 100]
   --list d        list all available generators
   --concurrent    skip ticks and generate fake data concurrently
+  --prefix s      text to display before the generated data [default: ]
+  --postfix s     text to display after the generated data [default: ]
   -v, --version   show version information
   -h, --help      show help information
 

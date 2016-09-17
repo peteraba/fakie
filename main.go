@@ -24,23 +24,27 @@ var usage = `
     [--batch n]
     [--list]
     [--concurrent]
+    [--prefix s]
+    [--postfix s]
 
     fakie -h | --help
     fakie -v | --version
 
   Options:
-    --tick d        generate data every d [default: 10ms]
+    --tick d        frequency of data generation [default: 10ms]
     --max n         generate data up to n [default: -1]
     --batch n       batch size for concurrent runs [default: 0]
     --list          list all available generators
     --concurrent    skip ticks and generate fake data concurrently
+    --prefix s      text to display before the generated data [default: ]
+    --postfix s     text to display after the generated data [default: ]
     -v, --version   show version information
     -h, --help      show help information
 
 `
 
 func main() {
-	args, err := docopt.Parse(usage, nil, true, "0.0.2", false)
+	args, err := docopt.Parse(usage, nil, true, "fakie 0.2.0", false)
 	check(err)
 
 	g := fakie.NewGenerator()
@@ -65,11 +69,15 @@ func main() {
 	tick := time.Tick(d)
 	f := compile(string(tmpl), g)
 
+	fmt.Println(args["--prefix"].(string))
+
 	if args["--concurrent"].(bool) {
 		concurrentMain(max, tmpl, f, batch)
 	} else {
 		tickMain(max, tmpl, f, tick)
 	}
+
+	fmt.Println(args["--postfix"].(string))
 }
 
 func concurrentMain(max int, tmpl string, f func() string, batchSize int) {
@@ -100,7 +108,6 @@ func concurrentMain(max int, tmpl string, f func() string, batchSize int) {
 			break
 		}
 	}
-
 }
 
 func tickMain(max int, tmpl string, f func() string, tick <-chan time.Time) {
@@ -144,6 +151,7 @@ func compile(tmpl string, g *fakie.Generator) func() string {
 				if len(dataCache) <= int(i64) {
 					check(errors.New("Given template references a non-existent value"))
 				}
+
 				return dataCache[i64]
 			}
 
@@ -162,17 +170,20 @@ func check(err error) {
 func parseInt(s string) int {
 	i, err := strconv.Atoi(s)
 	check(err)
+
 	return i
 }
 
 func parseDuration(s string) time.Duration {
 	d, err := time.ParseDuration(s)
 	check(err)
+
 	return d
 }
 
 func readAll(r *os.File) string {
 	b, err := ioutil.ReadAll(r)
 	check(err)
+
 	return string(b)
 }
