@@ -1,11 +1,13 @@
 language: go
 
 install:
+ - go get github.com/peteraba/fakie
  - go get golang.org/x/tools/cmd/cover
  - go get github.com/stretchr/testify
  - go get github.com/mattn/goveralls
 
 go:
+ - 1.5
  - 1.6
  - 1.7
  - tip
