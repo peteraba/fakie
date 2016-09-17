@@ -17,7 +17,7 @@ echo "mode: count" > coverage.out
 ERROR=""
 
 # Test each package and append coverage profile info to profile.cov
-for pkg in $(go list ./... | /usr/bin/grep -v /vendor/)
+for pkg in $(go list ./... | grep -v /vendor/)
 do
     #$HOME/gopath/bin/
     go test -v -covermode=count -coverprofile=profile_tmp.cov $pkg || ERROR="Error testing $pkg"
