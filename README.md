@@ -190,3 +190,10 @@ This will output something similar to the following:
 {"email":"tomaslau16@example.us","email_repeated":"tomaslau16@example.us"}
 ```
 
+## Development
+
+Pull requests are welcome, but if you intend to develop something for `fakie` than please make sure to install the
+git hook shipped with the project:
+```bash
+./git/install_hooks.bash
+```
