@@ -1,3 +1,10 @@
+[![Release](https://img.shields.io/github/release/peteraba/fakie.svg)](https://github.com/peteraba/fakie/releases/latest)
+[![Build Status](https://travis-ci.org/peteraba/fakie.svg?branch=master)](https://travis-ci.org/peteraba/fakie)
+[![Coverage Status](https://coveralls.io/repos/github/peteraba/fakie/badge.svg?branch=develop)](https://coveralls.io/github/peteraba/fakie?branch=develop)
+[![Go Report Card](https://goreportcard.com/badge/github.com/peteraba/fakie)](https://goreportcard.com/report/github.com/peteraba/fakie)
+[![GoDoc](https://godoc.org/github.com/peteraba/fakie?status.svg)](https://godoc.org/github.com/peteraba/fakie)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/peteraba/fakie/master/LICENSE)
+
 # fakie
 
 Tiny command line program that accepts a template and outputs fake data based on [phony](https://github.com/yields/phony).
