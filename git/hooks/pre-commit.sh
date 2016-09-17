@@ -21,6 +21,8 @@ if [[ $(echo "${gotest}" | grep ^FAIL) != '' ]]; then
   echo ''
   echo 'Some Go tests failed, please fix them.'
   exit 1
+else
+  echo 'Go tests passed.'
 fi
 
 echo 'Checking Go formatting.'
