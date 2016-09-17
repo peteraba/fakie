@@ -3,6 +3,7 @@ language: go
 install:
  - go get github.com/peteraba/fakie
  - go get golang.org/x/tools/cmd/cover
+ - go get github.com/stretchr/testify
  - go get github.com/mattn/goveralls
 
 go:
@@ -11,6 +12,6 @@ go:
  - tip
 
 script:
- - go test -v -covermode=count -coverprofile=coverage.out
+ - ./testandcover.bash
  - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken SPA43rgBqEwYyMuwfp9jf9OSXm3YtydUZ
 
