@@ -136,7 +136,7 @@ Smart unixtime will - as the name suggests - give you a unix timestamp. It will 
 
 *Example:*
 
-If now is `2016-09-17 16:05:02`, than the following will get a unix timestamp representing a date between `2015-09-12 12:05:02` and `2015-09-22 22:05:02`
+If the current time is `2016-09-17 16:05:02`, than the following will get a unix timestamp representing a date between `2015-09-12 12:05:02` and `2015-09-22 22:05:02`
 
 ```
 echo '{{smartunixtime:-366.0,5.25}}' | fakie --max 1
@@ -168,7 +168,7 @@ echo '{{smartunixtime:-366.0,5.25}}' | fakie --max 1
 
 *Example:*
 
-If now is `2016-09-17 16:05:02`, than the following will get a date between `2015-09-12 12:05:02` and 
+If the current time is `2016-09-17 16:05:02`, than the following will get a date between `2015-09-12 12:05:02` and 
 `2015-09-22 22:05:02`, formatting will be compatible with MySQL.
 
 ```
