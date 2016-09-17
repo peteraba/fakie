@@ -95,8 +95,8 @@ Options:
   product.category
   product.name
   smartdouble:desiredStdDev,desiredMean,min,max
-  smartdate:format,deviationDays,rangeDays
   smartunixtime:deviationDays,rangeDays
+  smartdate:format,deviationDays,rangeDays
   state
   state.code
   timezone
@@ -105,6 +105,8 @@ Options:
 ```
 
 ### Generator attributes
+
+Basic generators coming from phony have no attributes, but the more advanced fakie ones do.
 
 #### Smart double
 
@@ -116,6 +118,29 @@ All arguments are optional.
 - Desired maximum value
 
 More info: https://golang.org/pkg/math/rand/#Rand.NormFloat64
+
+*Example:*
+
+The following will output a random number with the standard deviation of 10.2 and mean of -8.7, but no smaller than -80.3 and no larger than 90.2.
+
+```
+echo '{{smartdouble:10.2,-8.7,-80.3,90.2}}' | fakie --max 1
+```
+
+#### Smart unixtime
+
+Smart unixtime will - as the name suggests - give you a unix timestamp. It will start with `now`.
+
+- Deviation in days (float): Value will be added to the unixtime of `now`.
+- Range in days (float): Value will be used to randomize the unix timestamp.
+
+*Example:*
+
+If now is `2016-09-17 16:05:02`, than the following will get a unix timestamp representing a date between `2015-09-12 12:05:02` and `2015-09-22 22:05:02`
+
+```
+echo '{{smartunixtime:-366.0,5.25}}' | fakie --max 1
+```
 
 #### Smart date
 
@@ -141,10 +166,15 @@ More info: https://golang.org/pkg/math/rand/#Rand.NormFloat64
 - Deviation in days
 - Range in days
 
-#### Smart unixtime
+*Example:*
 
-- Deviation in days
-- Range in days
+If now is `2016-09-17 16:05:02`, than the following will get a date between `2015-09-12 12:05:02` and 
+`2015-09-22 22:05:02`, formatting will be compatible with MySQL.
+
+```
+echo '{{smartdate:SqlDateTime,-366.0,5.25}}' | fakie --max 1
+```
+
 
 ## Numbering
 
